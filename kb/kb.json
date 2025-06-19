@@ -1,0 +1,14 @@
+[
+  {
+    "pattern": "timeout.*postgres.*connection",
+    "fix": "Check if the PostgreSQL instance is reachable. Ensure service IP and port (5432) are correct. Restart DB if necessary."
+  },
+  {
+    "pattern": "crashloopbackoff.*liveness probe",
+    "fix": "Inspect the livenessProbe config in the deployment YAML. The service might be starting too slowly or crashing immediately."
+  },
+  {
+    "pattern": "ECONNREFUSED",
+    "fix": "Check firewall rules, DB host availability, and network routes."
+  }
+]
