@@ -1,6 +1,6 @@
 from app.db import Base
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, DateTime, Text, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, Text, ForeignKey, LargeBinary
 from sqlalchemy.orm import relationship
 
 class RCARecord(Base):
@@ -13,6 +13,7 @@ class RCARecord(Base):
 
     alert_id = Column(Integer, ForeignKey("alerts.id"), nullable=True)
     alert = relationship("Alert", backref="rca")
+    embedding = Column(LargeBinary, nullable=True)
 
 class Log(Base):
     __tablename__ = "logs"
