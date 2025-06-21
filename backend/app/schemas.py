@@ -9,6 +9,8 @@ class RCAOut(BaseModel):
     created_at: datetime
     alert_id: Optional[int]=None
     suggested_fix: Optional[str]=None
+    incident_start_time: Optional[datetime] = None
+    incident_resolved_time: Optional[datetime] = None
 
     class Config:
         orm_mode = True

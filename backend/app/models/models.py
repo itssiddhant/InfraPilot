@@ -10,6 +10,8 @@ class RCARecord(Base):
     suggested_fix = Column(Text,nullable=True)
     created_at = Column(DateTime, default=datetime.utcnow)
     logs = Column(Text)
+    incident_start_time = Column(DateTime, nullable=True)
+    incident_resolved_time = Column(DateTime, nullable=True)
 
     alert_id = Column(Integer, ForeignKey("alerts.id"), nullable=True)
     alert = relationship("Alert", backref="rca")
